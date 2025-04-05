@@ -33,12 +33,12 @@ document.querySelector(".gmail-button").addEventListener("click", function(event
 
 // Hover Effect for Close Button (X Button)
 function hoverCloseButton(element) {
-    element.src = "../assets/profile/x2_button.png"; // Change icon on hover
+    element.src = "./assets/profile/x2_button.png"; // Change icon on hover
 }
 
 // Unhover Effect for Close Button (X Button)
 function unhoverCloseButton(element) {
-    element.src = "../assets/profile/x_button.png"; // Revert icon on unhover
+    element.src = "./assets/profile/x_button.png"; // Revert icon on unhover
 }
 
 // Call the function when the page loads
