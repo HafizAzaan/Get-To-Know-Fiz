@@ -1,0 +1,630 @@
+/* General Styles */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f5e9;
+    background-image: url("../assets/profile/house_with_background.png");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    overflow: auto;
+}
+
+/* Media Queries for Screen Sizes */
+@media (min-width: 1600px) {
+    body {
+        background-size: 220%;
+    }
+}
+
+@media (max-width: 1599px) and (min-width: 1200px) {
+    body {
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
+    body {
+        background-size: contain;
+        background-position: center top;
+    }
+}
+
+@media (max-width: 479px) {
+    body {
+        background-size: contain;
+        background-position: center top;
+    }
+}
+
+/* Header Section */
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    height: 60px;
+}
+
+/* Profile Section */
+.profile {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Profile Banner Image */
+.profile-banner {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: 60px;
+    pointer-events: none;
+}
+
+/* Profile Gif */
+.profile-gif {
+    position: absolute;
+    top: 21px;
+    right: 10px;
+    width: 100px;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    pointer-events: none;
+}
+
+/* Profile Picture Container */
+.profile-pic-container {
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Profile Picture with 3D Effect */
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    box-shadow: none;
+}
+
+/* Initial Hidden State */
+#main-content {
+    display: none;
+}
+
+/* Slide-in Animation to Fade-in */
+.slide-in-content {
+    animation: fadeInContent 0.8s ease-out forwards;
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-out Menu Animation */
+.menu-slide-out {
+    animation: menuSlideOut 0.4s ease-in forwards;
+}
+
+@keyframes menuSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Overlay and Menu */
+.menu-overlay {
+    z-index: 1000;
+}
+
+.popup-overlay {
+    z-index: 999;
+}
+
+/* Footer Section */
+footer {
+    background: #2e7d32;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    margin-top: auto;
+}
+
+/* Dark Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 998;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Hamburger Button */
+.hamburger {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: url('../assets/profile/hamburger.png') no-repeat center;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger:hover {
+    background: url('../assets/profile/hamburger2.png') no-repeat center;
+    background-size: contain;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #053a04;
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.dropdown-menu.active {
+    left: 0;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 60px 0 0 0;
+}
+
+.dropdown-menu ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.dropdown-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    opacity: 1;
+    border: 4px solid #2e7d32;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 1400px;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.popup-image {
+    width: 90%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    border-radius: 8px;
+    image-rendering: auto;
+    pointer-events: none;
+}
+
+/* Specific Image Size Adjustments for Each Project */
+.book-exchange-images .popup-image {
+    max-height: 500px;
+}
+
+/* Specific Styles for Ride Hailing Section */
+.ride-hailing-images .popup-image {
+    width: 40%;
+    max-width: 800px; /* Prevents images from becoming too large */
+    height: auto;
+    object-fit: contain; /* Ensures aspect ratio is maintained */
+    border-radius: 8px;
+    image-rendering: auto;
+    pointer-events: none;
+}
+
+.toll-calculator-images .popup-image {
+    max-height: 450px;
+}
+
+/* General Popup Layout */
+.popup-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.popup-images > .popup-image-container:first-child {
+    grid-column: span 2;
+    height: 100%;
+    max-height: 800px;
+}
+
+.popup-images > .popup-image-container:not(:first-child) .popup-image {
+    margin-top:20px;
+    object-fit: contain;
+    height: 100%;
+    max-height: 400px;
+}
+
+/* Popup Image Container Styling */
+.popup-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 20px; 
+}
+
+.popup-image-container .image-description {
+    max-height: none;  /* No max-height restriction on large screens */
+    overflow-y: visible;  /* Ensure no scrollbar */
+}
+
+/* Admin's Image Description Styles */
+.popup-image-container.admin-image .image-description {
+    /* Set a max-height for the Admin descriptions */
+    max-height: 600px;  /* Adjust as needed */
+    overflow-y: auto;    /* Allow scrolling if content exceeds */
+}
+
+.coming-soon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+#tollCalculatorPopup {
+    overflow: hidden;  /* Prevent scrolling for this specific popup */
+}
+
+/* Image Descriptions */
+.image-description {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-top: 50px;
+    width: 100%;
+    position: relative;
+    max-width: 90%;
+    word-wrap: break-word;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Create the circle with the number for each description */
+
+/* Passenger's Images */
+.popup-image-container:nth-child(1) .image-description::before {
+    content: "1"; /* Number 1 for Passenger */
+}
+
+.popup-image-container:nth-child(2) .image-description::before {
+    content: "2"; /* Number 2 for Passenger */
+}
+
+.popup-image-container:nth-child(3) .image-description::before {
+    content: "3"; /* Number 3 for Passenger */
+}
+
+.popup-image-container:nth-child(4) .image-description::before {
+    content: "4"; /* Number 4 for Passenger */
+}
+
+.popup-image-container:nth-child(5) .image-description::before {
+    content: "5"; /* Number 5 for Passenger */
+}
+
+.popup-image-container:nth-child(6) .image-description::before {
+    content: "6"; /* Number 6 for Passenger */
+}
+
+.popup-image-container:nth-child(7) .image-description::before {
+    content: "7"; /* Number 7 for Passenger */
+}
+
+.popup-image-container:nth-child(8) .image-description::before {
+    content: "8"; /* Number 8 for Passenger */
+}
+
+.popup-image-container:nth-child(9) .image-description::before {
+    content: "9"; /* Number 9 for Passenger */
+}
+
+.popup-image-container:nth-child(10) .image-description::before {
+    content: "1"; /* Number 9 for Passenger */
+}
+
+.popup-image-container:nth-child(11) .image-description::before {
+    content: "2"; /* Number 9 for Passenger */
+}
+.popup-image-container:nth-child(12) .image-description::before {
+    content: "3"; /* Number 9 for Passenger */
+}
+
+
+/* Admin Images Styling */
+.popup-image.admin-image {
+    width: 100%; /* Make images take up the full container width */
+    max-width: 900px; /* Limit the maximum width of the images */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 500px; /* Adjust the height as needed */
+    object-fit: contain; /* Ensure image fits within container */
+}
+
+.image-description::before {
+    content: "";
+    font-size: 16px;
+    background-color: #2e7d32; /* Circle color */
+    color: white;
+    border-radius: 50%; /* Makes the circle */
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+/* Popup Content Styling */
+.popup-content p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Close Button (X Button) */
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: url('../assets/profile/x_button.png') no-repeat center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+.close-icon:hover {
+    background: url('../assets/profile/x2_button.png') no-repeat center;
+    background-size: contain;
+}
+
+/* Mini Witch Image */
+.mini-witch {
+    position: absolute;
+    bottom: 80px;
+    left: 20%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: auto;
+    pointer-events: none;
+}
+
+/* Contact Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+form label,
+form input,
+form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #1b5e20;
+}
+
+/* Project Card Styling */
+.project-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-card h2 {
+    font-size: 1.5em;
+    color: #2e7d32;
+}
+
+.project-card h3 {
+    font-size: 1.5em;
+    color: #2e7d32;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.crystal-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.crystal-icon.flipped {
+    transform: scaleX(-1);
+}
+
+.project-card p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.project-image {
+    max-width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+/* Responsive Design for Project Cards */
+@media (max-width: 768px) {
+    .project-card {
+        width: 90%;
+    }
+
+    .popup-images {
+        grid-template-columns: 1fr;
+    }
+
+    .popup-images > .popup-image-container:first-child {
+        grid-column: span 1;
+    }
+    .popup-image-container.admin-image .image-description {
+        max-height: 500px;  /* Or any height you want on small screens */
+        overflow-y: auto;    /* Allow scrolling on smaller screens */
+    }
+
+    /* For other descriptions, allow scrolling too on small screens */
+    .popup-image-container .image-description {
+        max-height: 400px;  /* Adjust max-height on smaller screens */
+        overflow-y: auto;   /* Enable scrolling */
+    }
+}
+/* Optional: Add smooth scrolling for the descriptions */
+.popup-image-container .image-description {
+    scroll-behavior: smooth;  /* Smooth scroll if content overflows */
+}
+/* Main Section Styling */
+main {
+    padding: 20px;
+    text-align: center;
+}

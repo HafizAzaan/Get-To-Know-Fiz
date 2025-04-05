@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get To Know Fiz Azaan</title>
+    <link rel="stylesheet" href="work_experience.css">
+    <style>
+    </style>
+</head>
+<body onload="displayContentAfterDelay()">
+    <header>
+        <!-- Hamburger Menu and Overlay -->
+        <button class="hamburger" onclick="toggleMenu()"></button>
+        <nav class="dropdown-menu" id="menu">
+            <ul>
+                <li><a href="javascript:void(0);" onclick="navigateWithMenuClose('profile.html')">Contact Me</a></li>
+                <li><a href="javascript:void(0);" style="color: lightgreen; cursor: default;">Resume</a></li>
+                <li><a href="javascript:void(0);" onclick="navigateWithMenuClose('project.html')">Projects</a></li>
+            </ul>
+        </nav>
+        <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+        <img src="../assets/profile/my_resume.png" class="profile-banner">
+        <img src="../assets/profile/cat.gif" alt="Pixel Art GIF" class="profile-gif">
+    </header>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Left Section (Fixed Image) -->
+        <div class="left-section">
+            <img src="../assets/profile/me.gif" class="profile-banner" alt="Profile Banner">
+        </div>
+
+        <!-- Right Section (Scrollable Content) -->
+        <div class="right-section">
+            <main id="main-content">
+                <!-- Work Experience Section -->
+                <section class="work-experience slide-in" id="workExperienceSection">
+                    <div class="experience">
+                        <p style="font-weight: bold; color: red; text-align: right;">Download Here!</p>
+                        <a class="download-button" href="../pdf/Resume_MuhamadHafizuddinAzaan_2025.pdf" download="resume.pdf">
+                            <img src="../assets/profile/resume_button.png" class="resume-img" alt="Resume Button">
+                        </a>
+                        <img src="../assets/profile/experience_banner.png" alt="Experience Banner" class="experience-banner">
+                        <h3>IT Internship (Diploma)</h3>
+                        <p><strong>F&B Nutrition Sdn Bhd - Teluk Panglima Garang</strong></p>
+                        <p><em>August 2021 to October 2021</em></p>
+                        <ul>
+                            <li>Managed computer maintenance, networking, security, and documentation under the guidance of a supervisor.</li>
+                            <li>Set up new PCs and printers, installed internet cabling, and monitored company folders to ensure data security.</li>
+                            <li>Prepared and maintained detailed reports of system configuration, maintenance activities, and network setups.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience">
+                        <h3>IT Internship (Degree)</h3>
+                        <p><strong>United-Seino Transportation (Malaysia) Sdn Bhd – Shah Alam</strong></p>
+                        <p><em>October 2024 to January 2025</em></p>
+                        <ul>
+                            <li>Managed a transportation management system focused on data entry, identifying bugs, and communicating them to the programmer as per supervisor’s instructions.</li>
+                            <li>Developed a toll calculator system for toll cost calculations with accurate route mapping using free APIs.</li>
+                            <li>Conducted system testing to ensure the new implementations met performance standards.</li>
+                            <li>Documented processes and reported progress on the transportation management system to the supervisor.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section class="education slide-in" id="educationSection">
+                    <div class="education-entry">
+                        <img src="../assets/profile/education_banner.png" alt="Education Banner" class="experience-banner">
+                        <h3>Bachelor’s degree in Computer Science (Hons.) Netcentric Computing</h3>
+                        <p><strong>UNIVERSITI TEKNOLOGI MARA, Shah Alam</strong></p>
+                        <p><em>March 2022 to Present</em></p>
+                        <ul>
+                            <li>Current CGPA: 3.29</li>
+                            <li>Achieved a CGPA of 3.5 in the 5th semester
+                                <!-- Button for CGPA -->
+                                <button id="cgpa-btn" class="pdf-button">
+                                    <img src="../assets/profile/document_close.png" id="cgpa-img" alt="Document Button">
+                                </button>
+                            </li>
+                        </ul>
+                        <!-- Hidden iframe for CGPA PDF -->
+                        <iframe id="cgpa-pdf" src="" width="600" height="400" style="display:none;"></iframe>
+
+                        <h3>Diploma in Computer Science & Mathematics</h3>
+                        <p><strong>UNIVERSITI TEKNOLOGI MARA, Kuala Terengganu</strong></p>
+                        <p><em>June 2018 to August 2021</em></p>
+                        <ul>
+                            <li>Final CGPA: 2.9</li>
+                            <li>MUET result: 4.0 
+                                <!-- Button for MUET -->
+                                <button id="muet-btn" class="pdf-button">
+                                    <img src="../assets/profile/document_close.png" id="muet-img" alt="Document Button">
+                                </button>
+                            </li>
+                        </ul>
+                        <!-- Hidden iframe for MUET PDF -->
+                        <iframe id="muet-pdf" src="" width="600" height="400" style="display:none;"></iframe>
+                    </div>
+                </section>
+
+                <!-- Skills Section -->
+                <section class="skills slide-in" id="skillsSection">
+                    <div class="skills-entry">
+                        <img src="../assets/profile/skills_banner.png" alt="Skills Banner" class="experience-banner">
+                        <ul>
+                            <li><strong>Programming Languages:</strong> C++, Java, Dart, PHP, SQL, HTML</li>
+                            <li><strong>Frameworks:</strong> Flutter, React</li>
+                            <li><strong>Databases:</strong> MySQL, MongoDB, Firebase</li>
+                            <li><strong>Integrated Development Environments:</strong> Visual Studio Code, Android Studio</li>
+                            <li><strong>Operating Systems:</strong> Windows, Linux (Ubuntu)</li>
+                            <li><strong>Cloud Platforms:</strong> Google Cloud Platform (GCP)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Languages Section -->
+                <section class="languages slide-in" id="languagesSection">
+                    <div class="languages-entry">
+                        <img src="../assets/profile/languages_banner.png" alt="Languages Banner" class="experience-banner">
+                        <ul>
+                            <strong>Languages:</strong>
+                            <li>
+                                English
+                                <button class="language-btn" data-lang="english">
+                                    <img src="../assets/profile/document_close.png" alt="Open Document" class="language-img">
+                                </button>
+                                <div id="englishImageContainer" class="image-container" style="display: none;">
+                                    <img src="../assets/profile/english.png" alt="English Image" id="englishImage">
+                                </div>
+                            </li>
+                            <li>
+                                Bahasa Malaysia
+                                <button class="language-btn" data-lang="malay">
+                                    <img src="../assets/profile/document_close.png" alt="Open Document" class="language-img">
+                                </button>
+                                <div id="malayImageContainer" class="image-container" style="display: none;">
+                                    <img src="../assets/profile/malay.png" alt="Malay Image" id="malayImage">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Link to the external JS file -->
+    <script src="work_experience.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            const overlay = document.getElementById("overlay");
+            menu.classList.toggle("active");
+            overlay.classList.toggle("active");
+        }
+
+        function navigateWithMenuClose(targetPage) {
+            const menu = document.getElementById("menu");
+            menu.classList.add("menu-slide-out");
+            setTimeout(() => {
+                window.location.href = targetPage;
+            }, 400);
+        }
+
+        function displayContentAfterDelay() {
+    setTimeout(() => {
+        const content = document.getElementById("main-content");
+        const leftSection = document.querySelector(".left-section");
+
+        // Make the content and left-section visible and apply the fade-in animation
+        content.style.display = "block";
+        leftSection.style.display = "block";
+
+        content.classList.add("fade-in");
+        leftSection.classList.add("fade-in");
+    }, 100); // Adjust the delay as needed (100ms is just an example)
+}
+
+    </script>
+
+    <footer class="profile-footer">
+        <p>&copy; 2025 Fiz Azaan. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

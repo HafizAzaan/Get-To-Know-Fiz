@@ -1,0 +1,624 @@
+/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1; /* Takes up the remaining space, pushing the footer to the bottom */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f5e9; /* Existing background color */
+    background-image: url("../assets/profile/house_with_background.png"); /* Background image */
+    background-size: cover; /* Ensures the background always covers the full screen */
+    background-position: center center; /* Centers the background */
+    background-attachment: fixed; /* Keeps the background in place while scrolling */
+    background-repeat: no-repeat; /* Prevents repeating */
+    margin: 0;
+    padding: 0;
+    width: 100vw; /* Ensures it fills the viewport width */
+    height: 100vh; /* Ensures it fills the viewport height */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Extra Large Screens (Desktops, 1600px and above) */
+@media (min-width: 1600px) {
+    body {
+        background-size: 180%; /* Slightly zoomed out for large screens */
+    }
+}
+
+/* Large Screens (Desktops and Laptops, 1200px - 1599px) */
+@media (max-width: 1599px) and (min-width: 1200px) {
+    body {
+        background-size: cover; /* Normal full-screen cover */
+        background-position: center center;
+    }
+}
+
+/* Medium Screens (Tablets and Small Laptops, 768px - 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    body {
+        background-size: cover; /* Adjusted for tablets */
+        background-position: center center;
+    }
+}
+
+/* Small Screens (Phones, 480px - 767px) */
+@media (max-width: 767px) and (min-width: 480px) {
+    body {
+        background-size: contain; /* Ensure full image is visible */
+        background-position: center top; /* Shift to top for better visibility */
+    }
+}
+
+/* Extra Small Screens (Smaller Phones, below 480px) */
+@media (max-width: 479px) {
+    body {
+        background-size: contain; /* Prevents cutting off important details */
+        background-position: center top;
+    }
+}
+
+
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    height: 60px;
+}
+
+/* Profile Section */
+.profile {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.profile-banner {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: 60px;
+    pointer-events: none;
+}
+
+.profile-gif {
+    position: absolute;
+    top: 21px; /* Increased from 1px to 20px (or adjust as needed) */
+    right: 10px;
+    width: 100px;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    pointer-events: none;
+}
+
+
+/* Profile Picture with 3D Effect */
+.profile-pic-container {
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    box-shadow: none;
+}
+
+.contact-image{
+    pointer-events: none;
+}
+
+/* Contact Buttons */
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.contact-buttons .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 180px;
+    height: 50px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Increase Size of Contact Buttons */
+.contact-buttons a img {
+    width: 300px; /* Adjust width */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s ease-in-out, opacity 0.3s ease; /* Adding opacity for smoother effect */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+
+/* Initial Hidden State */
+#main-content {
+    display: none;
+}
+
+/* Slide-in Animation to Fade-in */
+.slide-in-content {
+    animation: fadeInContent 0.8s ease-out forwards;
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideOutContent {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Slide-out Menu Animation */
+.menu-slide-out {
+    animation: menuSlideOut 0.4s ease-in forwards;
+}
+
+@keyframes menuSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Individual Contact Button Hover Effects */
+.whatsapp-button img:hover {
+    content: url("../assets/profile/whatsapp2.png");
+  
+}
+.gmail-button img:hover {
+    content: url("../assets/profile/gmail2.png");
+  
+}
+
+.call-button img:hover {
+    content: url("../assets/profile/call_button2.png");
+    width:140px;
+}
+
+/* Footer Styling */
+footer {
+    background: #2e7d32;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    margin-top: auto; 
+    z-index: 1; 
+}
+
+/* Dark Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Hamburger Button */
+.hamburger {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: url('../assets/profile/hamburger.png') no-repeat center;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger:hover {
+    background: url('../assets/profile/hamburger2.png') no-repeat center;
+    background-size: contain;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #053a04;
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.dropdown-menu.active {
+    left: 0;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 60px 0 0 0;
+}
+
+.dropdown-menu ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.dropdown-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    opacity: 1;
+    border: 4px solid #2e7d32;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+.popup-container {
+    display: flex;  /* Makes the image and form align side by side */
+    align-items: center; /* Vertically center both items */
+    justify-content: center; /* Horizontally center */
+    width: 100%;
+    height: 100%;
+}
+
+.popup-left {
+    flex: 1;
+    height: 40vh;
+    background: url('../assets/profile/window.gif') no-repeat center center;
+    background-size: cover;
+    background-position: center center;
+    margin-right: 20px;
+    border-radius: 15px;  /* Soft rounded edges */
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  /* Soft shadow for depth */
+}
+
+/* Right side with the form */
+.popup-right {
+    flex: 1;  /* Takes up the other 50% */
+    background-color: white;  /* You can change this to make the form background different */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;  /* Centers form content */
+    align-items: center;  /* Vertically centers content */
+    height: 100%;
+}
+
+.popup-content {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.popup-image {
+    width: 500px;
+    height: auto;
+    image-rendering: pixelated;
+    pointer-events: none;
+}
+
+/* Apply flexbox to the specific popup container */
+#phone-popup .popup-content {
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center;     /* Vertically center the image */
+    height: 100%;            /* Ensure the container takes up full height */
+    text-align: center;      /* Optional: Ensure any text is centered */
+}
+
+/* Style for the image inside the phone-popup */
+#phone-popup .popup-image {
+    width: 500px;
+    height: auto;
+    image-rendering: pixelated;
+    pointer-events: none;
+    max-width: 100%; /* Prevents overflow if the image is too large */
+}
+
+
+/* Close Button (X Button) */
+.close-icon {
+    position: absolute;
+    top: 40px;
+    right: 110px;
+    width: 50px;
+    height: 50px;
+    background: url('../assets/profile/x_button.png') no-repeat center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+.close-icon:hover {
+    background: url('../assets/profile/x2_button.png') no-repeat center;
+    background-size: contain;
+}
+
+/* Close Button (X) for Gmail Popup */
+#close-gmail-popup-btn {
+    position: absolute;
+    top: 5px;    /* Move the button higher */
+    right: 10px; /* Move the button more to the right */
+    width: 40px;
+    height: 40px;
+    background: url('../assets/profile/x_button.png') no-repeat center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    image-rendering: pixelated; /* Ensure sharp display for pixel art images */
+}
+
+#close-gmail-popup-btn:hover {
+    background: url('../assets/profile/x2_button.png') no-repeat center;
+    background-size: contain;
+}
+
+
+/* Open WhatsApp Pixel Art */
+.whatsapp-question {
+    width: 500px; /* Adjust size */
+    height: auto;
+    image-rendering: pixelated;
+    position: relative;
+    pointer-events: none; 
+}
+
+/* Yes Button */
+.yes-button {
+    width: 150px; /* Adjust size */
+    height: auto;
+    cursor: pointer;
+    position: absolute; /* Allows placement on top */
+    top: 70%; /* Moves it down */
+    left: 30%; /* Centers it */
+    transform: translate(-50%, -55%); /* Perfect centering */
+    z-index: 10; /* Ensures it appears above */
+    image-rendering: pixelated;
+}
+
+/* Adjust WhatsApp Popup Close Button */
+#close-whatsapp-btn {
+    position: absolute;
+    top: 40px;  /* Move it higher */
+    right: 110px; /* Move it more to the right */
+    width: 50px;
+    height: 50px;
+    background: url('../assets/profile/x_button.png') no-repeat center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    image-rendering: pixelated;
+    z-index: 20; /* Ensures it's on top of everything */
+}
+
+/* Close Button Hover Effect */
+#close-whatsapp-btn:hover {
+    background: url('../assets/profile/x2_button.png') no-repeat center;
+    background-size: contain;
+}
+
+/* No Button Styling */
+.no-button {
+    width: 150px; /* Adjust size */
+    height: auto;
+    cursor: pointer;
+    position: absolute; /* Allows placement on top */
+    top: 70%; /* Moves it down */
+    left: 70%; /* Position next to Yes button */
+    transform: translate(-50%, -55%); /* Perfect centering */
+    z-index: 10; /* Ensures it appears above */
+    image-rendering: pixelated;
+}
+
+/* No Button Hover Effect */
+.no-button:hover {
+    content: url("../assets/profile/no2.png");
+}
+
+.profile-footer {
+    position: relative; /* Make footer relative to position children absolutely */
+}
+
+.mini-witch {
+    position: absolute;
+    bottom: 80px; /* Adjust this value to control how far from the bottom of the footer */
+    left: 20%;
+    transform: translateX(-50%); /* Center the image horizontally */
+    width: 100px; /* Adjust the size of the witch image */
+    height: auto; /* Maintain aspect ratio */
+    pointer-events: none;
+}
+
+/* Center the form elements */
+form {
+    display: flex;
+    flex-direction: column; /* Makes form elements stack vertically */
+    align-items: center; /* Centers form elements horizontally */
+    width: 100%; /* Ensures the form takes up full width of the popup */
+}
+
+form label{
+    background-color: #a5d6a7; /* Light green background */
+    color: #2e7d32;
+}
+
+/* Ensure form elements (label, input, textarea) are displayed in a block layout */
+form label,
+form input,
+form textarea {
+    display: block;      /* Makes them take up full width and stack vertically */
+    width: 100%;         /* Ensure the input and textarea fill the available width */
+    margin-bottom: 15px; /* Adds spacing between form elements */
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;  
+    
+}
+
+/* Optional: Styling for the text area */
+form textarea {
+    resize: vertical;   /* Allows user to resize the textarea vertically */
+    min-height: 100px;   /* Sets a minimum height */
+}
+
+/* Button Styling */
+form button {
+    padding: 10px 20px;
+    background-color: #2e7d32;  /* Button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #1b5e20; /* Darker shade when hovering */
+}
+
+/* Make the button's container position relative */
+.contact-buttons a {
+    position: relative; /* This makes the button a reference point for absolutely positioning child elements */
+}
+
+/* Add a container for the pointer GIF */
+.pointer-container {
+    display: none; /* Hide by default */
+    position: absolute;
+    right: 290px; /* Adjust to move the pointer closer or further from the button */
+    top: 50%; /* Vertically align with the center of the button */
+    transform: translateY(-50%); /* Ensure the pointer is vertically centered */
+    pointer-events: none;
+}
+
+/* Display pointer GIF when hovering over Gmail or WhatsApp buttons */
+.gmail-button:hover .pointer-container,
+.whatsapp-button:hover .pointer-container {
+    display: block;
+}
+
+/* Styling for pointer GIF */
+.pointer-container img {
+    width: 150px !important;  /* Make the pointer GIF smaller */
+    height: auto !important; /* Keep the aspect ratio intact */
+    image-rendering: pixelated; /* Optional: For pixelated effect */
+}
+
+/* Success Message Container */
+#success-message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#close-success-btn {
+    position: absolute;
+    top: 35px;
+    right: 105px;
+    width: 50px;
+    height: 45px;
+    background: url('../assets/profile/x_button.png') no-repeat center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+#close-success-btn:hover {
+    background: url('../assets/profile/x2_button.png') no-repeat center;
+    background-size: contain;
+}
+
+

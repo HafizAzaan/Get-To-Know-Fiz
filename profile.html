@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get To Know Fiz Azaan</title>
+    <link rel="stylesheet" href="profile_styles.css">
+    <style>
+        /* Initial Hidden State */
+        #main-content {
+            display: none;
+        }
+
+/* Slide-in Animation to Fade-in */
+.slide-in-content {
+    animation: fadeInContent 0.8s ease-out forwards;
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+        /* Slide-out Animation */
+        .slide-out-content {
+            animation: slideOutContent 0.5s ease-out forwards;
+        }
+
+        @keyframes slideOutContent {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        /* Slide-out Menu Animation */
+        .menu-slide-out {
+            animation: menuSlideOut 0.4s ease-in forwards;
+        }
+
+        @keyframes menuSlideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Load EmailJS Script (Use the latest version) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+           emailjs.init({
+             publicKey: "6VsmkflD7YBJJwyG1",
+           });
+        })();
+    </script>
+</head>
+<body onload="displayContentAfterDelay()">
+    <header>
+    <!-- Updated Hamburger Menu Button -->
+    <button class="hamburger" onclick="toggleMenu()"></button>
+
+    <!-- Dropdown Menu -->
+    <nav class="dropdown-menu" id="menu">
+        <ul>
+            <li>
+                <a href="javascript:void(0);" onclick="return false;" style="color: lightgreen; cursor: default;">
+                Contact Me
+                </a>
+            </li>
+            <li><a href="work_experience.html" onclick="navigateWithMenuClose('work_experience.html')">Resume</a></li>
+            <li><a href="project.html" onclick="navigateWithMenuClose('project.html')">Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- Pixel Art Banner -->
+    <img src="../assets/profile/My_Profile_banner.png" class="profile-banner">
+
+    <!-- Pixel Art GIF -->
+    <img src="../assets/profile/cat.gif" alt="Pixel Art GIF" class="profile-gif">
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+</header>
+
+<script>
+    // Check if we are on the profile.html page
+    window.onload = function() {
+        const currentPage = window.location.pathname;
+        const contactLink = document.querySelector('.contact-link');
+
+        if (currentPage.includes('profile.html')) {
+            // Disable the "Contact Me" link and change its color
+            contactLink.style.pointerEvents = 'none';
+            contactLink.style.color = 'lightgreen';
+        }
+    };
+</script>
+
+    <main id="main-content">
+        <!-- Profile Section -->
+        <section class="profile">
+            <div class="profile-pic-container" onclick="flipProfile()">
+                <div class="profile-pic">
+                    <img src="../assets/profile/me.jpg" alt="Profile Picture">
+                </div>
+            </div>
+
+            <h2 id="username">Fiz Azaan</h2>
+            <img id="contact-banner" src="../assets/profile/contact_me.png" alt="Contact Me!" class="contact-image">
+
+            <!-- Contact Buttons -->
+            <div class="contact-buttons">
+<!-- Gmail Button -->
+<a href="mailto:hafizazaan200@gmail.com" class="gmail-button" target="_blank">
+    <div class="pointer-container">
+        <img src="../assets/profile/pointer.gif" alt="Pointer GIF">
+    </div>
+    <img src="../assets/profile/gmail.png" alt="Gmail Button" class="gmail-icon">
+</a>
+
+<!-- WhatsApp Button -->
+<a href="javascript:void(0);" class="whatsapp-button" onclick="confirmWhatsApp(event)">
+    <div class="pointer-container">
+        <img src="../assets/profile/pointer.gif" alt="Pointer GIF">
+    </div>
+    <img src="../assets/profile/whatsapp.png" alt="WhatsApp Button">
+</a>
+
+
+
+
+
+
+
+            <!-- Call Button -->
+            <a href="javascript:void(0);" class="call-button" onclick="confirmCall(event)">
+                <img src="../assets/profile/call_button.png" alt="Call Button" class="call-icon">
+            </a>
+
+            </div>
+        </section>
+
+        <!-- Phone Number Popup -->
+        <div id="phone-popup" class="popup">
+            <div class="popup-content">
+                <button id="close-btn" class="close-icon" onclick="closePopup()"></button>
+                <img src="../assets/profile/phone_number.png" alt="Phone Number" class="popup-image">
+            </div>
+        </div>
+
+        <!-- WhatsApp Pixel Art Popup -->
+        <div id="whatsapp-popup" class="popup">
+            <div class="popup-content">
+                <!-- Close Button -->
+                <button id="close-whatsapp-btn" class="close-icon" onclick="closeWhatsAppPopup()"></button>
+
+                <!-- Open WhatsApp Question -->
+                <img src="../assets/profile/open_whatsapp_question.png" alt="Open WhatsApp?" class="whatsapp-question">
+                
+                <!-- Yes Button -->
+                <img src="../assets/profile/yes.png" alt="Yes Button" class="yes-button"
+                    onmouseover="hoverYesButton(this)"
+                    onmouseout="unhoverYesButton(this)"
+                    onclick="openWhatsApp()">
+
+                <!-- No Button -->
+                <img src="../assets/profile/no.png" alt="No Button" class="no-button"
+                    onmouseover="hoverNoButton(this)"
+                    onmouseout="unhoverNoButton(this)"
+                    onclick="closeWhatsAppPopup()">
+            </div>
+        </div>
+
+<!-- Gmail Popup Form -->
+<div id="gmail-popup" class="popup">
+    <div class="popup-container">
+        <div class="popup-left">
+            <!-- Remove the <img> tag for the background image -->
+        </div> 
+        <div class="popup-right">
+            <div class="popup-content">
+                <button id="close-gmail-popup-btn" class="close-icon" onclick="closeGmailPopup()"></button>
+                <h3>Contact Me via Email</h3>
+                
+                <form id="gmail-form" onsubmit="sendEmail(event)">
+                    <!-- Your form fields here -->
+                    <input type="hidden" id="to-email" name="to-email" value="hafizazaan200@gmail.com">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name here">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email here">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Enter the subject here">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                    
+                    <!-- Success/Error Messages -->
+                    <div id="form-message" style="display: none; color: green; margin-top: 10px;">
+                        Email sent successfully!
+                    </div>
+                    <div id="form-error" style="display: none; color: red; margin-top: 10px;">
+                        Failed to send email. Please try again later.
+                    </div>
+                </form>
+          
+                <!-- Email Link for Manual Sending -->
+                <p>Alternatively, you can email me directly at: hafizazaan200@gmail.com</p> 
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Success Message Image -->
+<div id="success-message-container" class="popup" style="display: none;">
+    <div class="popup-content">
+        <!-- Close Button for Success Message -->
+        <button id="close-success-btn" class="close-icon" onclick="closeSuccessMessage()"></button>
+        <img src="../assets/profile/success_message.png" alt="Success" class="popup-image">
+    </div>
+</div>
+
+
+
+
+    </main>
+
+
+    <script src="profile.js"></script>
+
+    <!-- Footer Section -->
+    <footer class="profile-footer">
+        <p>&copy; 2025 Fiz Azaan. All rights reserved.</p>
+        <img src="../assets/profile/mini_witch.gif" alt="Mini Witch" class="mini-witch">
+    </footer>
+    
+
+</body>
+</html>
