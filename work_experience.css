@@ -86,7 +86,7 @@
 }
 
 .download-button:hover .resume-img {
-    content: url("../assets/profile/resume_button2.png");
+    content: url("./assets/profile/resume_button2.png");
 }
 
 .education {
@@ -158,7 +158,7 @@ main {
 body {
     font-family: Arial, sans-serif;
     background-color: #e8f5e9;
-    background-image: url("../assets/profile/house_with_background.png");
+    background-image: url("./assets/profile/house_with_background.png");
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -253,7 +253,7 @@ footer {
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
-    background: url('../assets/profile/hamburger.png') no-repeat center;
+    background: url('./assets/profile/hamburger.png') no-repeat center;
     background-size: contain;
     width: 50px;
     height: 50px;
@@ -262,7 +262,7 @@ footer {
 }
 
 .hamburger:hover {
-    background: url('../assets/profile/hamburger2.png') no-repeat center;
+    background: url('./assets/profile/hamburger2.png') no-repeat center;
     background-size: contain;
 }
 
@@ -333,7 +333,7 @@ footer {
 }
 
 .pdf-button:hover img {
-    content: url('../assets/profile/document_open.png');
+    content: url('./assets/profile/document_open.png');
     opacity: 0.7;
 }
 
@@ -390,7 +390,7 @@ footer {
 }
 
 .language-btn:hover .language-img {
-    content: url('../assets/profile/document_open.png');
+    content: url('./assets/profile/document_open.png');
     opacity: 0.7;
    
 }
@@ -400,7 +400,7 @@ footer {
     display: flex;
     height: 100vh;
     background-color: #e8f5e9;
-    background-image: url("../assets/profile/house_with_background.png");
+    background-image: url("./assets/profile/house_with_background.png");
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
