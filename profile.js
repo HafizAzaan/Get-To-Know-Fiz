@@ -126,12 +126,12 @@ function closeWhatsAppPopup() {
 
 // Hover Effect for Yes Button
 function hoverYesButton(element) {
-    element.src = "../assets/profile/yes2.png";
+    element.src = "./assets/profile/yes2.png";
 }
 
 // Unhover Effect for Yes Button
 function unhoverYesButton(element) {
-    element.src = "../assets/profile/yes.png";
+    element.src = "./assets/profile/yes.png";
 }
 
 // Call Popup for Phone Number
@@ -162,12 +162,12 @@ function closePopup() {
 
 // Hover Effect for Close Button
 function hoverCloseButton(element) {
-    element.src = "../assets/profile/x2_button.png";
+    element.src = "./assets/profile/x2_button.png";
 }
 
 // Unhover Effect for Close Button
 function unhoverCloseButton(element) {
-    element.src = "../assets/profile/x_button.png";
+    element.src = "./assets/profile/x_button.png";
 }
 
 // Call the function when the page loads
@@ -203,12 +203,12 @@ function navigateWithMenuClose(targetPage) {
 
 // Hover effect for No Button (WhatsApp)
 function hoverNoButton(element) {
-    element.src = "../assets/profile/no2.png";
+    element.src = "./assets/profile/no2.png";
 }
 
 // Revert Hover Effect for No Button (WhatsApp)
 function unhoverNoButton(element) {
-    element.src = "../assets/profile/no.png";
+    element.src = "./assets/profile/no.png";
 }
 
 function openPopup(popupId) {
