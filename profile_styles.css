@@ -13,7 +13,7 @@ main {
 body {
     font-family: Arial, sans-serif;
     background-color: #e8f5e9; /* Existing background color */
-    background-image: url("../assets/profile/house_with_background.png"); /* Background image */
+    background-image: url("./assets/profile/house_with_background.png"); /* Background image */
     background-size: cover; /* Ensures the background always covers the full screen */
     background-position: center center; /* Centers the background */
     background-attachment: fixed; /* Keeps the background in place while scrolling */
@@ -223,16 +223,16 @@ header {
 
 /* Individual Contact Button Hover Effects */
 .whatsapp-button img:hover {
-    content: url("../assets/profile/whatsapp2.png");
+    content: url("./assets/profile/whatsapp2.png");
   
 }
 .gmail-button img:hover {
-    content: url("../assets/profile/gmail2.png");
+    content: url("./assets/profile/gmail2.png");
   
 }
 
 .call-button img:hover {
-    content: url("../assets/profile/call_button2.png");
+    content: url("./assets/profile/call_button2.png");
     width:140px;
 }
 
@@ -272,7 +272,7 @@ footer {
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
-    background: url('../assets/profile/hamburger.png') no-repeat center;
+    background: url('./assets/profile/hamburger.png') no-repeat center;
     background-size: contain;
     width: 50px;
     height: 50px;
@@ -281,7 +281,7 @@ footer {
 }
 
 .hamburger:hover {
-    background: url('../assets/profile/hamburger2.png') no-repeat center;
+    background: url('./assets/profile/hamburger2.png') no-repeat center;
     background-size: contain;
 }
 
@@ -348,7 +348,7 @@ footer {
 .popup-left {
     flex: 1;
     height: 40vh;
-    background: url('../assets/profile/window.gif') no-repeat center center;
+    background: url('./assets/profile/window.gif') no-repeat center center;
     background-size: cover;
     background-position: center center;
     margin-right: 20px;
@@ -408,7 +408,7 @@ footer {
     right: 110px;
     width: 50px;
     height: 50px;
-    background: url('../assets/profile/x_button.png') no-repeat center;
+    background: url('./assets/profile/x_button.png') no-repeat center;
     background-size: contain;
     border: none;
     cursor: pointer;
@@ -416,7 +416,7 @@ footer {
 }
 
 .close-icon:hover {
-    background: url('../assets/profile/x2_button.png') no-repeat center;
+    background: url('./assets/profile/x2_button.png') no-repeat center;
     background-size: contain;
 }
 
@@ -427,7 +427,7 @@ footer {
     right: 10px; /* Move the button more to the right */
     width: 40px;
     height: 40px;
-    background: url('../assets/profile/x_button.png') no-repeat center;
+    background: url('./assets/profile/x_button.png') no-repeat center;
     background-size: contain;
     border: none;
     cursor: pointer;
@@ -435,7 +435,7 @@ footer {
 }
 
 #close-gmail-popup-btn:hover {
-    background: url('../assets/profile/x2_button.png') no-repeat center;
+    background: url('./assets/profile/x2_button.png') no-repeat center;
     background-size: contain;
 }
 
@@ -469,7 +469,7 @@ footer {
     right: 110px; /* Move it more to the right */
     width: 50px;
     height: 50px;
-    background: url('../assets/profile/x_button.png') no-repeat center;
+    background: url('./assets/profile/x_button.png') no-repeat center;
     background-size: contain;
     border: none;
     cursor: pointer;
@@ -479,7 +479,7 @@ footer {
 
 /* Close Button Hover Effect */
 #close-whatsapp-btn:hover {
-    background: url('../assets/profile/x2_button.png') no-repeat center;
+    background: url('./assets/profile/x2_button.png') no-repeat center;
     background-size: contain;
 }
 
@@ -498,7 +498,7 @@ footer {
 
 /* No Button Hover Effect */
 .no-button:hover {
-    content: url("../assets/profile/no2.png");
+    content: url("./assets/profile/no2.png");
 }
 
 .profile-footer {
@@ -610,14 +610,14 @@ form button:hover {
     right: 105px;
     width: 50px;
     height: 45px;
-    background: url('../assets/profile/x_button.png') no-repeat center;
+    background: url('./assets/profile/x_button.png') no-repeat center;
     background-size: contain;
     border: none;
     cursor: pointer;
 }
 
 #close-success-btn:hover {
-    background: url('../assets/profile/x2_button.png') no-repeat center;
+    background: url('./assets/profile/x2_button.png') no-repeat center;
     background-size: contain;
 }
 
