@@ -60,11 +60,11 @@ function togglePdf(buttonId, iframeId, imgId, pdfPath) {
 
 
     document.getElementById('muet-btn').addEventListener('click', function() {
-        togglePdf('muet-btn', 'muet-pdf', 'muet-img', './pdf/MUET_Result.pdf');
+        togglePdf('muet-btn', 'muet-pdf', 'muet-img', 'pdf/MUET_Result.pdf');
     });
 
     document.getElementById('cgpa-btn').addEventListener('click', function() {
-        togglePdf('cgpa-btn', 'cgpa-pdf', 'cgpa-img', './pdf/sijil_dekan.pdf');
+        togglePdf('cgpa-btn', 'cgpa-pdf', 'cgpa-img', 'pdf/sijil_dekan.pdf');
     });
 
     // Function to open the modal and show the selected image
