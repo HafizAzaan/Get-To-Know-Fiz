@@ -1,4 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Function to toggle PDF display and keep language buttons visible
+    function togglePdf(buttonId, iframeId, imgId, pdfPath) {
+        const iframe = document.getElementById(iframeId);
+        const img = document.getElementById(imgId);
+        
+        const pdfVisible = iframe.style.display === 'none' || iframe.style.display === '';
+        iframe.style.display = pdfVisible ? 'block' : 'none'; // Toggle visibility of the iframe
+        iframe.src = pdfVisible ? pdfPath : ''; // Set the source of the iframe to load the PDF
+        img.src = pdfVisible ? '../assets/profile/document_open.png' : '../assets/profile/document_close.png'; // Change button image
+        
+        // Do not hide language buttons when the PDF is opened
+    }
+
+    // Add event listeners to toggle PDFs when the buttons are clicked
+    document.getElementById('muet-btn').addEventListener('click', function() {
+        togglePdf('muet-btn', 'muet-pdf', 'muet-img', './pdf/MUET_Result.pdf'); // Adjust path as needed
+    });
+
+    document.getElementById('cgpa-btn').addEventListener('click', function() {
+        togglePdf('cgpa-btn', 'cgpa-pdf', 'cgpa-img', './pdf/sijil_dekan.pdf'); // Adjust path as needed
+    });
+
     // Handle back button and slide-out animation
     const backButton = document.querySelector(".back-button");
     const workExperienceSection = document.getElementById("workExperienceSection");
@@ -43,37 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
-// Function to toggle PDF display and keep language buttons visible
-function togglePdf(buttonId, iframeId, imgId, pdfPath) {
-    const iframe = document.getElementById(iframeId);
-    const img = document.getElementById(imgId);
-    
-    const pdfVisible = iframe.style.display === 'none' || iframe.style.display === '';
-    iframe.style.display = pdfVisible ? 'block' : 'none';
-    iframe.src = pdfVisible ? pdfPath : '';
-    img.src = pdfVisible ? './assets/profile/document_open.png' : './assets/profile/document_close.png';
-
-    // Do not hide language buttons when the PDF is opened
-    // languageButtons.forEach(button => button.style.display = 'inline-block'); // No need to hide them anymore
-}
-
-
-    document.getElementById('muet-btn').addEventListener('click', function() {
-        togglePdf('muet-btn', 'muet-pdf', 'muet-img', 'pdf/MUET_Result.pdf');
-    });
-
-    document.getElementById('cgpa-btn').addEventListener('click', function() {
-        togglePdf('cgpa-btn', 'cgpa-pdf', 'cgpa-img', 'pdf/sijil_dekan.pdf');
-    });
-
     // Function to open the modal and show the selected image
     function openLanguageImage(imageName) {
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         
         // Set the image source to the selected image
-        modalImage.src = `./assets/profile/${imageName}`;
+        modalImage.src = `../assets/profile/${imageName}`;
         
         // Display the modal
         modal.style.display = "flex";  // Changed to 'flex' to center the content
@@ -99,9 +97,9 @@ function togglePdf(buttonId, iframeId, imgId, pdfPath) {
             // Set the image source based on the clicked button
             const modalImage = document.getElementById('modalImage');
             if (lang === "english") {
-                modalImage.src = "./assets/profile/english.png"; // Replace with your actual path
+                modalImage.src = "../assets/profile/english.png"; // Replace with your actual path
             } else if (lang === "malay") {
-                modalImage.src = "./assets/profile/malay.png"; // Replace with your actual path
+                modalImage.src = "../assets/profile/malay.png"; // Replace with your actual path
             }
             // Show the modal and trigger slide-in effect
             languageModal.classList.add("show");
@@ -125,11 +123,10 @@ function togglePdf(buttonId, iframeId, imgId, pdfPath) {
     const closeButton = document.getElementById('closeBtn');
 
     closeButton.addEventListener("mouseover", function() {
-        closeButton.src = "./assets/profile/x2_button.png"; // Image on hover
+        closeButton.src = "../assets/profile/x2_button.png"; // Image on hover
     });
 
     closeButton.addEventListener("mouseout", function() {
-        closeButton.src = "./assets/profile/x_button.png"; // Default image
+        closeButton.src = "../assets/profile/x_button.png"; // Default image
     });
 });
-
