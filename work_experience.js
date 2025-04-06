@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const pdfVisible = iframe.style.display === 'none' || iframe.style.display === '';
         iframe.style.display = pdfVisible ? 'block' : 'none'; // Toggle visibility of the iframe
         iframe.src = pdfVisible ? pdfPath : ''; // Set the source of the iframe to load the PDF
-        img.src = pdfVisible ? '../assets/profile/document_open.png' : '../assets/profile/document_close.png'; // Change button image
+        img.src = pdfVisible ? './assets/profile/document_open.png' : './assets/profile/document_close.png'; // Change button image
         
         // Do not hide language buttons when the PDF is opened
     }
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalImage = document.getElementById('modalImage');
         
         // Set the image source to the selected image
-        modalImage.src = `../assets/profile/${imageName}`;
+        modalImage.src = `./assets/profile/${imageName}`;
         
         // Display the modal
         modal.style.display = "flex";  // Changed to 'flex' to center the content
@@ -97,9 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // Set the image source based on the clicked button
             const modalImage = document.getElementById('modalImage');
             if (lang === "english") {
-                modalImage.src = "../assets/profile/english.png"; // Replace with your actual path
+                modalImage.src = "./assets/profile/english.png"; // Replace with your actual path
             } else if (lang === "malay") {
-                modalImage.src = "../assets/profile/malay.png"; // Replace with your actual path
+                modalImage.src = "./assets/profile/malay.png"; // Replace with your actual path
             }
             // Show the modal and trigger slide-in effect
             languageModal.classList.add("show");
@@ -123,10 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeButton = document.getElementById('closeBtn');
 
     closeButton.addEventListener("mouseover", function() {
-        closeButton.src = "../assets/profile/x2_button.png"; // Image on hover
+        closeButton.src = "./assets/profile/x2_button.png"; // Image on hover
     });
 
     closeButton.addEventListener("mouseout", function() {
-        closeButton.src = "../assets/profile/x_button.png"; // Default image
+        closeButton.src = "./assets/profile/x_button.png"; // Default image
     });
 });
