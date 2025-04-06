@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const pdfVisible = iframe.style.display === 'none' || iframe.style.display === '';
         iframe.style.display = pdfVisible ? 'block' : 'none'; // Toggle visibility of the iframe
         iframe.src = pdfVisible ? pdfPath : ''; // Set the source of the iframe to load the PDF
-        img.src = pdfVisible ? './assets/profile/document_open.png' : './assets/profile/document_close.png'; // Change button image
-        
-        // Do not hide language buttons when the PDF is opened
+        img.src = pdfVisible ? './assets/profile/document_open.png' : './assets/profile/document_close.png'; 
     }
 
     // Add event listeners to toggle PDFs when the buttons are clicked
