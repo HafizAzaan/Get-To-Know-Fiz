@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Add event listeners to toggle PDFs when the buttons are clicked
     document.getElementById('muet-btn').addEventListener('click', function() {
-        togglePdf('muet-btn', 'muet-pdf', 'muet-img', './pdf/MUET_Result.pdf'); // Adjust path as needed
+        togglePdf('muet-btn', 'muet-pdf', 'muet-img', './pdf/MUET_result.pdf'); // Adjust path as needed
     });
 
     document.getElementById('cgpa-btn').addEventListener('click', function() {
